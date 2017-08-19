@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp1.0\BCCReclaimApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.1" />
+    <PackageReference Include="Lykke.Common" Version="1.1.79" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
+    <PackageReference Include="QBitNinja.Client" Version="1.0.3.39" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="1.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Common">
+      <HintPath>..\..\..\..\..\GitHub\OffchainMonitor\OffchainMonitor\Common\bin\Debug\netstandard1.4\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>..\..\..\..\..\GitHub\OffchainMonitor\OffchainMonitor\src\Core\bin\Debug\netcoreapp1.0\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LkeServices">
+      <HintPath>..\..\..\..\..\GitHub\OffchainMonitor\OffchainMonitor\src\LkeServices\bin\Debug\netcoreapp1.0\LkeServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlliteRepositories">
+      <HintPath>..\..\..\..\..\GitHub\OffchainMonitor\OffchainMonitor\SqlliteRepositories\bin\Debug\netcoreapp1.0\SqlliteRepositories.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
