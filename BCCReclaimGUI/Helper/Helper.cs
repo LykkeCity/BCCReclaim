@@ -182,7 +182,7 @@ namespace BCCReclaimGUI.Helper
                 builder.Send(destination, moneyToSend);
                 builder.SendFees(fee);
 
-                var txToSend = builder.BuildTransaction(true);
+                var txToSend = builder.BuildTransaction(true, SigHash.All | SigHash.ForkId);
                 var verify = builder.Verify(txToSend);
 
                 string broadcastUrl = string.Format("{0}/api/Broadcast/Broadcast?transaction={1}", settings.BroadcastUrlBase, txToSend.ToHex());

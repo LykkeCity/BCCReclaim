@@ -35,8 +35,8 @@
     <ApplicationIcon>lykke.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NBitcoin, Version=4.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NBitcoin.4.0.0.3\lib\net45\NBitcoin.dll</HintPath>
+    <Reference Include="NBitcoin">
+      <HintPath>..\..\..\..\Lykkex\TestsAndExperiments\BCCReclaim\NBitcoin-f4f9249fd21352e6a4f05614ce37e1737f12b418\NBitcoin\bin\Debug\netstandard1.1\NBitcoin.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>

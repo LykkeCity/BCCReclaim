@@ -34,6 +34,18 @@ namespace PubKeyExtraction
             set;
         }
 
+        public int DustAmount
+        {
+            get;
+            set;
+        }
+
+        public int FeeRatePerK
+        {
+            get;
+            set;
+        }
+
         public int BCCHeight
         {
             get;
