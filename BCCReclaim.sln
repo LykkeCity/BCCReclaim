@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFiller", "DatabaseF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnsignedTxCreator", "UnsignedTxCreator\UnsignedTxCreator.csproj", "{B8A3F0B8-353B-4C69-BCBD-61CBFA5ACCD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSVExporter", "CSVExporter\CSVExporter.csproj", "{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B8A3F0B8-353B-4C69-BCBD-61CBFA5ACCD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8A3F0B8-353B-4C69-BCBD-61CBFA5ACCD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8A3F0B8-353B-4C69-BCBD-61CBFA5ACCD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{9F4A0570-F544-4EB7-9883-6F784F17FE63} = {E1D2C017-821A-4BAD-8B90-9C146AA9A6FE}
 		{1B0EEE66-F3EB-430D-84B7-02177396ABF1} = {E1D2C017-821A-4BAD-8B90-9C146AA9A6FE}
 		{B8A3F0B8-353B-4C69-BCBD-61CBFA5ACCD3} = {E1D2C017-821A-4BAD-8B90-9C146AA9A6FE}
+		{B760CB45-F3FE-4962-9CA3-222CB9F0AF88} = {E1D2C017-821A-4BAD-8B90-9C146AA9A6FE}
 	EndGlobalSection
 EndGlobal

@@ -60,6 +60,9 @@ namespace PubKeyExtraction
             settings.QBitNinjaUrl = config.AppSettings.Settings["QBitNinjaUrl"].Value;
             settings.StartLine = Int32.Parse(config.AppSettings.Settings["StartLine"].Value);
             settings.EndLine = Int32.Parse(config.AppSettings.Settings["EndLine"].Value);
+            settings.DustAmount = Int32.Parse(config.AppSettings.Settings["DustAmount"].Value);
+            settings.BCCHeight = Int32.Parse(config.AppSettings.Settings["BCCHeight"].Value);
+            settings.FeeRatePerK = Int32.Parse(config.AppSettings.Settings["FeeRatePerK"].Value);
             return settings;
         }
     }

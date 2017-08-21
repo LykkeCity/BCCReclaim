@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B0EEE66-F3EB-430D-84B7-02177396ABF1}</ProjectGuid>
+    <ProjectGuid>{B760CB45-F3FE-4962-9CA3-222CB9F0AF88}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DatabaseFiller</RootNamespace>
-    <AssemblyName>DatabaseFiller</AssemblyName>
+    <RootNamespace>CSVExporter</RootNamespace>
+    <AssemblyName>CSVExporter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,21 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\BCCReclaimContext.cs" />
-    <Compile Include="DB\Multisig.cs" />
-    <Compile Include="Migrations\201708180905213_InitialCreate.cs" />
-    <Compile Include="Migrations\201708180905213_InitialCreate.Designer.cs">
-      <DependentUpon>201708180905213_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708180916003_TransactionsAdded.cs" />
-    <Compile Include="Migrations\201708180916003_TransactionsAdded.Designer.cs">
-      <DependentUpon>201708180916003_TransactionsAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708181339165_AmountsAdded.cs" />
-    <Compile Include="Migrations\201708181339165_AmountsAdded.Designer.cs">
-      <DependentUpon>201708181339165_AmountsAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,19 +57,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708180905213_InitialCreate.resx">
-      <DependentUpon>201708180905213_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708180916003_TransactionsAdded.resx">
-      <DependentUpon>201708180916003_TransactionsAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708181339165_AmountsAdded.resx">
-      <DependentUpon>201708181339165_AmountsAdded.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\DatabaseFiller\DatabaseFiller.csproj">
+      <Project>{1b0eee66-f3eb-430d-84b7-02177396abf1}</Project>
+      <Name>DatabaseFiller</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="data\foldercopier.txt" />
+    <Content Include="data\foldercopier.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

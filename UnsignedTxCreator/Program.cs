@@ -30,14 +30,26 @@ namespace UnsignedTxCreator
                     var line = splitted[counter];
                     IList<Coin> coins = new List<Coin>();
 
+                    string[] parts = null;
+                    BitcoinAddress multisigAddr = null;
+                    long clientAmount = 0;
+                    long hubAmount = 0;
+                    PubKey clientPubkey = null;
+                    PubKey hubPubkey = null;
+
                     if (!string.IsNullOrEmpty(line))
                     {
-                        var parts = line.Split(new char[] { ',' });
-                        var multisigAddr = BitcoinAddress.Create(parts[0]);
-                        var clientAmount = Convert.ToInt64(double.Parse(parts[1]) * 1000000000);
-                        var hubAmount = Convert.ToInt64(double.Parse(parts[2]) * 100000000);
-                        var clientPubkey = new PubKey(parts[3]);
-                        var hubPubkey = new PubKey(parts[4]);
+                        parts = line.Split(new char[] { ',' });
+                        if(parts[3].StartsWith("-1"))
+                        {
+                            continue;
+                        }
+
+                        multisigAddr = BitcoinAddress.Create(parts[0]);
+                        clientAmount = Convert.ToInt64(double.Parse(parts[1]) *  (long)MoneyUnit.BTC);
+                        hubAmount = Convert.ToInt64(double.Parse(parts[2]) * (long)MoneyUnit.BTC);
+                        clientPubkey = new PubKey(parts[3]);
+                        hubPubkey = new PubKey(parts[4]);
                         var redeemScript = PayToMultiSigTemplate.Instance.GenerateScriptPubKey(2, new PubKey[] { clientPubkey, hubPubkey });
 
                         var ops = client.GetBalanceBetween(new QBitNinja.Client.Models.BalanceSelector(multisigAddr),
@@ -54,14 +66,14 @@ namespace UnsignedTxCreator
 
                         if (coins.Count() == 0)
                         {
-                            resultTx = "-1, No coins to use for building transaction.";
+                            resultTx = "-1: No coins to use for building transaction.";
                         }
                         else
                         {
                             var totalAmount = coins.Sum(c => c.Amount);
                             if (totalAmount < clientAmount + hubAmount)
                             {
-                                resultTx = "-2, The input amounts does not cover the required outputs.";
+                                resultTx = "-2: The input amounts does not cover the required outputs.";
                             }
                             else
                             {
@@ -77,7 +89,7 @@ namespace UnsignedTxCreator
 
                                 if (totalAmount - fee < dust + 1)
                                 {
-                                    resultTx = "-3, After providing fee for transaction nothing remains except dust.";
+                                    resultTx = "-3: After providing fee for transaction nothing remains except dust.";
                                 }
                                 else
                                 {
@@ -98,19 +110,19 @@ namespace UnsignedTxCreator
 
                                     if (resultingHubAmount < dust + 1)
                                     {
+                                        resultingHubAmount = 0;
                                         resultingClientAmount = totalAmount - fee;
                                     }
                                     else
                                     {
-                                        resultingHubAmount = 0;
                                         resultingClientAmount = totalAmount - fee - resultingHubAmount;
                                     }
 
                                     if (resultingHubAmount > 0)
                                     {
-                                        builder.Send(hubPubkey.GetAddress(settings.Network), hubAmount);
+                                        builder.Send(hubPubkey.GetAddress(settings.Network), resultingHubAmount);
                                     }
-                                    builder.Send(clientPubkey.GetAddress(settings.Network), clientAmount);
+                                    builder.Send(clientPubkey.GetAddress(settings.Network), resultingClientAmount);
                                     builder.SetChange(clientPubkey.GetAddress(settings.Network));
                                     builder.SendFees(fee);
 
@@ -120,6 +132,9 @@ namespace UnsignedTxCreator
                             }
                         }
                     }
+
+                    resultLines.AppendLine(string.Format("{0},{1},{2},{3},{4},{5}",
+                        multisigAddr, clientAmount, hubAmount, clientPubkey.ToHex(), hubPubkey.ToHex(), resultTx));
                 }
             }
 
