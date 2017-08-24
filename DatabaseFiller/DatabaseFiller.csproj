@@ -85,6 +85,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="data\foldercopier.txt" />
+    <Content Include="Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

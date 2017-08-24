@@ -1,0 +1,1 @@
+﻿This project exctracts public keys for multisig address to create unsigned transactions, from blockchain. Some addresses may have not been covered since they are not spent in the blockchain, yet.

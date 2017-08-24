@@ -1,0 +1,1 @@
+﻿This project creates unsigned transactions for BCC Reclaim, the transaction should be further signed by both Lykke (TxSigner) and the client. There is scenario still not covered which is when the reported balance on blockchain is slightly smaller than the reported sum client+hub balance (For example in range of 100 satoshis). This case will fail with current code.

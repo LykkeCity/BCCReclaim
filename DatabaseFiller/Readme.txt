@@ -1,0 +1,1 @@
+﻿This reads the CSV files (generally the results) and fills/updates the database with it. Database is central entity for holding data.

@@ -1,0 +1,1 @@
+﻿This project exports data from database to a CSV file, which will be used as input to other projects. So they could be easily run on other machines without problems for database.

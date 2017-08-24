@@ -1,0 +1,1 @@
+﻿This project signs the the unsigned transacions using the Lykke private key. This project has not been tested, mostly because it was the last one before project stop.

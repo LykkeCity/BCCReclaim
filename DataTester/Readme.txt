@@ -1,0 +1,1 @@
+﻿Some of the reported channel states, do not match what is on blockchain. For example hub + client reported amounts in channel in spreadsheet, may be different than what is in blockchain. This project reports those differences.
